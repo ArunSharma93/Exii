@@ -4,5 +4,5 @@ from rango import views
 
 urlpatterns = [
     #url(r'^$', views.index.as_view()),
-    url(r'^rango/$', views.HomePage.as_view()),
+    url(r'^rango/$', views.index),
 ]
