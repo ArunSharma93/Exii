@@ -12,3 +12,11 @@ def index(request, moo = moo):
     context_dict = {'GreetingMessage': moo}
 
     return render_to_response('rango/index.html', context_dict, context)
+
+meow = "im a cat"
+def about(request, meow = meow):
+    context = RequestContext(request)
+
+    context_dict = {'AboutMessage': meow}
+
+    return render_to_response('rango/about.html', context_dict, context)
