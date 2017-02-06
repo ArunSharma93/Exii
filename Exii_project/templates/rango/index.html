@@ -9,9 +9,19 @@
     </head>
 
     <body>
-        <h1>Rango says...</h1>
-        hello world! {{ GreetingMessage }}<br />
-        <a href="/about/">About</a><br />
+        <h1>Hello world</h1>
+
+        {% if categories %}
+            <ul>
+                {% for category in categories %}
+                <li><a href = "/rango/category/{{ category.url }}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong> No categories present </strong>
+        {% endif %}
+
+        <a href="/about/">About</a>
         <img src="{% static "background.gif" %}" alt = "Picture of space" />
 
     </body>
