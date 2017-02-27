@@ -9,20 +9,37 @@
     </head>
 
     <body>
-        <h1>Hello world</h1>
+        <!-- The below block presents a tailored user message if the user has loggn in
+        , and a generic message if they have not -->
+
+        {% if user.is_authenticated %}
+        <h1>Rango says... hello {{ user.username }}!</h1>
+        {% else %}
+        <h1>Rango says... hello world!</h1>
+        {% endif %}
 
         {% if categories %}
             <ul>
                 {% for category in categories %}
-                <li><a href = "/rango/category/{{ category.url }}">{{ category.name }}</a></li>
+                <li><a href = "/category/{{ category.url }}">{{ category.name }}</a></li>
                 {% endfor %}
             </ul>
         {% else %}
             <strong> No categories present </strong>
         {% endif %}
 
-        <a href="/about/">About</a>
-        <img src="{% static "background.gif" %}" alt = "Picture of space" />
+        {% if user.is_authenticated %}
+        <a href="/restricted/"> Restricted Page </a><br />
+        <a href="/logout/"> Logout <a/><br />
+        {% else %}
+        <a href="/register/"> Register <a/><br />
+        <a href="/login/"> Login <a/> <br />
+        {% endif %}
+
+        <a href="/about/">About</a> <br>
+        <a href = "/add_category/"> Add a new category </a> <br>
+        <img src="{% static "background.gif" %}" alt = "Picture of space"
+                style = 'width:304px;height:228px;'/>
 
     </body>
 

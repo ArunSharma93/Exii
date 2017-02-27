@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{% block title %} Exii {% endblock %}</title>
+    </head>
+
+        <h1>{% block header %}{% endblock %}</h1>
+
+    <body>
+        <div>
+            {% block body_block %} {% endblock %}
+        </div>
+
+        <div id='sidebar'>
+            {% block sidebar %}
+            <ul>
+            {% if user.is_authenticated %}
+                <li><a href="/restricted/">Restricted Page</a></li>
+                <li><a href="/logout/">Logout</a></li>
+                <li><a href="/add_category/">Add a New Category</a></li>
+            {% else %}
+                <li><a href="/register/">Register Here</a></li>
+                <li><a href="/login/">Login</a></li>
+            {% endif %}
+
+                <li><a href="/about/"> About <a/></li>
+                <li><a href="/"> Home <a/></li>
+            </ul>
+            {% endblock %}
+        </div>
+    </body>
+</html>

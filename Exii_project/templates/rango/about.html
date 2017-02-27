@@ -1,17 +1,12 @@
-<!DOCTYPE html>
+{% extends 'rango/base.html' %}
 
 {% load static %} <!-- New line -->
 
-<html>
+{% block title %} About {% endblock %}
+{% block header %} About {% endblock %}
 
-    <head>
-        <title>About</title>
-    </head>
+{% block body_block %}
 
-    <body>
-        <h1>Rango says...</h1>
-        About! {{ AboutMessage }}<br />
-        <a href="/rango/">Home</a><br />
-    </body>
+    {{ AboutMessage }}<br />
 
-</html>
+{% endblock %}

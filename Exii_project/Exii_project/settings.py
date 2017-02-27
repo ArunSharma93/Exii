@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rango'
+    'rango',
 ]
 
 MIDDLEWARE = [
@@ -115,7 +115,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_PATH  = os.path.join(PROJECT_PATH, 'static')
-print STATIC_PATH
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     STATIC_PATH,
@@ -123,3 +122,6 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/login/'
